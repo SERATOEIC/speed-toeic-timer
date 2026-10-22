@@ -29,10 +29,10 @@ jobs:
           node-version: 20
 
       - name: Install dependencies
-       run: |
+        run: |
           npm cache clean --force
           npm install
-          
+
       - name: Build
         run: npm run build
 
