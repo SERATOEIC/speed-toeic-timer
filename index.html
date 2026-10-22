@@ -62,6 +62,41 @@
     </script>
   </head>
   <body class="bg-slate-950 text-slate-100 antialiased selection:bg-blue-600 selection:text-white">
+    <!-- PWA 설치 배너 -->
+    <div id="pwa-install-banner" style="display: none; background: #2563eb; color: white; padding: 12px 16px; align-items: center; justify-content: space-between; font-family: sans-serif; position: sticky; top: 0; z-index: 9999;">
+      <div style="font-weight: bold; font-size: 14px;">📱 SPEED TOEIC TIMER 앱 설치</div>
+      <button id="pwa-install-btn" style="background: white; color: #2563eb; border: none; padding: 6px 14px; border-radius: 20px; font-weight: bold; font-size: 13px; cursor: pointer;">
+        앱 설치
+      </button>
+    </div>
+    <script>
+      let deferredPrompt;
+      const installBanner = document.getElementById('pwa-install-banner');
+      const installBtn = document.getElementById('pwa-install-btn');
+
+      window.addEventListener('beforeinstallprompt', (e) => {
+        e.preventDefault();
+        deferredPrompt = e;
+        if (installBanner) {
+          installBanner.style.display = 'flex';
+        }
+      });
+
+      if (installBtn) {
+        installBtn.addEventListener('click', () => {
+          if (deferredPrompt) {
+            deferredPrompt.prompt();
+            deferredPrompt.userChoice.then((choiceResult) => {
+              if (choiceResult.outcome === 'accepted') {
+                installBanner.style.display = 'none';
+              }
+              deferredPrompt = null;
+            });
+          }
+        });
+      }
+    </script>
+
     <div id="root"></div>
     <!-- 앱 진입점 스크립트 (상대 경로 ./ 적용) -->
     <script type="module" src="./src/main.tsx"></script>
