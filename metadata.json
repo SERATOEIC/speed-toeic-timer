@@ -1,0 +1,8 @@
+{
+  "name": "스토 타이머 (SPEED TOEIC TIMER)",
+  "description": "수강생 관리, 맞춤형 공부 타이머(아날로그 시계 기반), TOP 3 랭킹, 관리자 공지 및 디자인 제어가 통합된 토익 스터디 타이머 웹 애플리케이션",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+<link rel="manifest" href="/manifest.json" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+    <meta name="theme-color" content="#0f172a" />
+    <meta name="background-color" content="#020617" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="스피드토익" />
+
+    <!-- PWA Web App Manifest (display: standalone, id: speed-toeic-timer-app) -->
+    <link rel="manifest" href="/manifest.json" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/svg+xml" href="/icon.svg" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/pwa-192x192.png" />
+    <link rel="icon" type="image/png" sizes="512x512" href="/pwa-512x512.png" />
+
+    <title>스피드토익 타이머</title>
+    <meta name="description" content="수강생 관리, 맞춤형 공부 타이머(아날로그 시계 기반), TOP 3 랭킹, 관리자 공지 및 디자인 제어가 통합된 토익 스터디 타이머 웹 애플리케이션" />
+    <meta property="og:title" content="스피드토익 타이머" />
+    <meta property="og:description" content="수강생 관리, 맞춤형 공부 타이머(아날로그 시계 기반), TOP 3 랭킹, 관리자 공지 및 디자인 제어가 통합된 토익 스터디 타이머 웹 애플리케이션" />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Firebase SDK CDN (Compat v10 for Realtime Database global access) -->
+    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-database-compat.js"></script>
+
+    <!-- Early PWA Install Prompt Capture, WebSocket error suppression & Service Worker Registration -->
+    <script>
+      // Gracefully suppress harmless Vite HMR WebSocket error in iframe preview environment
+      window.addEventListener('error', function(e) {
+        if (e && (e.message || '').includes('WebSocket closed without opened')) {
+          if (typeof e.preventDefault === 'function') e.preventDefault();
+          if (typeof e.stopImmediatePropagation === 'function') e.stopImmediatePropagation();
+          return true;
+        }
+      }, true);
+      window.addEventListener('unhandledrejection', function(e) {
+        if (e && (e.reason?.message || '').includes('WebSocket closed without opened')) {
+          if (typeof e.preventDefault === 'function') e.preventDefault();
+          return true;
+        }
+      });
+
+      // Capture PWA install prompt early before React components mount
+      window.__pwaInstallPrompt = null;
+      window.__pwaIsInstalled = Boolean(
+        window.matchMedia('(display-mode: standalone)').matches ||
+        window.navigator.standalone === true ||
+        document.referrer.includes('android-app://')
+      );
+
+      window.addEventListener('beforeinstallprompt', function(e) {
+        // Prevent default mini-infobar so our custom install button can trigger the native dialog
+        e.preventDefault();
+        window.__pwaInstallPrompt = e;
+        window.dispatchEvent(new CustomEvent('pwa-prompt-ready', { detail: e }));
+        console.log('[PWA] beforeinstallprompt captured and ready for button trigger');
+      });
+
+      window.addEventListener('appinstalled', function() {
+        window.__pwaInstallPrompt = null;
+        window.__pwaIsInstalled = true;
+        window.dispatchEvent(new CustomEvent('pwa-app-installed'));
+        console.log('[PWA] Application installed successfully into standalone mode');
+      });
+
+      // Register standard Service Worker reliably
+      function registerSW() {
+        if ('serviceWorker' in navigator) {
+          navigator.serviceWorker.register('/sw.js', { scope: '/' })
+            .then(function(reg) {
+              console.log('[PWA] Service Worker registered successfully with scope:', reg.scope);
+            })
+            .catch(function(err) {
+              console.warn('[PWA] Service Worker registration failed:', err);
+            });
+        }
+      }
+
+      if (document.readyState === 'complete' || document.readyState === 'interactive') {
+        registerSW();
+      } else {
+        window.addEventListener('DOMContentLoaded', registerSW);
+      }
+    </script>
+  </head>
+  <body class="bg-slate-950 text-slate-100 antialiased selection:bg-blue-600 selection:text-white">
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
