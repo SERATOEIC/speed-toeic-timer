@@ -1,0 +1,15 @@
+{
+  "short_name": "스피드토익",
+  "name": "스피드토익 타이머",
+  "icons": [
+    {
+      "src": "./icon.svg",
+      "sizes": "192x192 512x512",
+      "type": "image/svg+xml"
+    }
+  ],
+  "start_url": "./",
+  "background_color": "#020617",
+  "theme_color": "#0f172a",
+  "display": "standalone"
+}
