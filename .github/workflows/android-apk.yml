@@ -33,6 +33,20 @@ jobs:
           npm install --legacy-peer-deps
           npm install --no-save --legacy-peer-deps @capacitor/core @capacitor/cli @capacitor/android
 
+      - name: Create Capacitor configuration
+        run: |
+          cat > capacitor.config.json <<'EOF'
+          {
+            "appId": "com.seratoeic.speedtoeictimer",
+            "appName": "SPEED TOEIC TIMER",
+            "webDir": "dist",
+            "bundledWebRuntime": false,
+            "android": {
+              "allowMixedContent": true
+            }
+          }
+          EOF
+
       - name: Build web app
         run: |
           sed -i "s|base: '/speed-toeic-timer/',|base: './',|" vite.config.ts
