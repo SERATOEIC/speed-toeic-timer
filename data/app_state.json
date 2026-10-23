@@ -1,0 +1,180 @@
+{
+  "version": 1,
+  "exportedAt": "2026-10-20T08:09:43.778Z",
+  "pushedAt": 1792645303187,
+  "sourceDevice": "관리자 기기 (타이머 프리셋 변경)",
+  "students": [
+    {
+      "id": "stu_1",
+      "name": "김태완",
+      "registeredAt": "2026-10-01T09:00:00Z",
+      "status": "approved",
+      "totalStudySeconds": 180330,
+      "todayStudySeconds": 18600,
+      "lastStudiedAt": "2026-10-21T13:08:44.960Z"
+    },
+    {
+      "id": "stu_2",
+      "name": "이지은",
+      "registeredAt": "2026-10-03T11:20:00Z",
+      "status": "approved",
+      "totalStudySeconds": 141130,
+      "todayStudySeconds": 9800,
+      "lastStudiedAt": "2026-10-17T07:45:00Z"
+    },
+    {
+      "id": "stu_3",
+      "name": "박민우",
+      "registeredAt": "2026-10-05T14:10:00Z",
+      "status": "approved",
+      "totalStudySeconds": 114300,
+      "todayStudySeconds": 7200,
+      "lastStudiedAt": "2026-10-16T22:10:00Z"
+    },
+    {
+      "id": "stu_4",
+      "name": "최소연",
+      "registeredAt": "2026-10-08T16:00:00Z",
+      "status": "approved",
+      "totalStudySeconds": 87020,
+      "todayStudySeconds": 5400,
+      "lastStudiedAt": "2026-10-16T19:00:00Z"
+    },
+    {
+      "id": "stu_5",
+      "name": "윤성호",
+      "registeredAt": "2026-10-10T10:30:00Z",
+      "status": "approved",
+      "totalStudySeconds": 67800,
+      "todayStudySeconds": 3600,
+      "lastStudiedAt": "2026-10-15T21:00:00Z"
+    },
+    {
+      "id": "stu_pending_1",
+      "name": "한정민",
+      "registeredAt": "2026-10-17T08:15:00Z",
+      "status": "pending",
+      "totalStudySeconds": 0,
+      "todayStudySeconds": 0
+    },
+    {
+      "id": "stu_1792506253897_s6do",
+      "name": "정우성",
+      "registeredAt": "2026-10-20T14:24:13.897Z",
+      "status": "pending",
+      "totalStudySeconds": 0,
+      "todayStudySeconds": 0
+    }
+  ],
+  "adminSettings": {
+    "appKoreanName": "스피드토익 수강생 전용 타이머",
+    "appEnglishName": "SPEED TOEIC TIMER",
+    "showAppBadge": false,
+    "headerSubtitle": "토익 고사장 아날로그 시계 체화 & 실시간 누적 순공 관리",
+    "showSubtitle": true,
+    "bannerTag": "SPEED TOEIC MOTIVATION",
+    "showBannerTag": true,
+    "homeGreetingQuote": "실전은 스피드다!",
+    "showHomeGreeting": true,
+    "homeSubQuote": "시험장 아날로그 시계와 동일한 시각적 훈련으로 마킹까지 완벽 대비",
+    "showHomeSubQuote": true,
+    "appLogoUrl": "",
+    "clockCenterLogoUrl": "",
+    "backgroundImageUrl": "",
+    "backgroundOverlayOpacity": 0.8,
+    "adminPasswordHash": "admin1234",
+    "uiCardStyle": "slate",
+    "uiFontSize": "normal",
+    "uiTextColor": "pure_white",
+    "uiAccentColor": "blue",
+    "blockOrder": [
+      "banner",
+      "podium",
+      "preset_timers",
+      "custom_timer",
+      "notices"
+    ]
+  },
+  "presetTimers": [
+    {
+      "id": "pre_rc_marking",
+      "name": "RC 75분 실전 (마킹 포함)",
+      "description": "Part 5, 6, 7 풀이 + OMR 마킹 5분 포함 표준 시험 배분",
+      "durationMinutes": 75,
+      "category": "RC",
+      "includeMarking": true
+    },
+    {
+      "id": "pre_rc_nomarking",
+      "name": "RC 70분 타이트 (마킹 미포함)",
+      "description": "순수 문제 풀이만 70분 이내에 끝내는 고득점 타이트 훈련",
+      "durationMinutes": 70,
+      "category": "RC",
+      "includeMarking": false
+    },
+    {
+      "id": "pre_full_marking",
+      "name": "LC + RC 120분 전과목 풀세트 (마킹 포함)",
+      "description": "LC 45분 + RC 75분 총 200문항 풀세트 실전 고사장 시뮬레이션",
+      "durationMinutes": 120,
+      "category": "LC+RC",
+      "includeMarking": true
+    },
+    {
+      "id": "pre_full_nomarking",
+      "name": "LC + RC 115분 전과목 (마킹 미포함)",
+      "description": "마킹 시간 제외 115분 내 전 문항 완벽 격파 연습",
+      "durationMinutes": 115,
+      "category": "LC+RC",
+      "includeMarking": false
+    },
+    {
+      "id": "pre_part56",
+      "name": "Part 5 & 6 스피드 20분",
+      "description": "문법 어휘 46문항을 20분(문항당 20~25초) 안에 주파",
+      "durationMinutes": 20,
+      "category": "PART",
+      "includeMarking": false
+    },
+    {
+      "id": "pre_part7",
+      "name": "Part 7 독해 집중 55분",
+      "description": "단일지문 + 이중지문 + 삼중지문 54문항 집중 타임어택",
+      "durationMinutes": 55,
+      "category": "PART",
+      "includeMarking": true
+    }
+  ],
+  "notices": [
+    {
+      "id": "not_1",
+      "title": "📢 10월 정기 토익 시험 대비 실전 아날로그 타이머 훈련 안내",
+      "content": "실제 토익 고사장은 디지털 시계 반입이 금지되어 있습니다. 스토 타이머의 아날로그 시계 시침/분침 감각으로 15분 단위(Part 5,6 20분컷, Part 7 55분컷)를 체화하세요.",
+      "category": "필독",
+      "createdAt": "2026-10-15",
+      "isPinned": true
+    },
+    {
+      "id": "not_2",
+      "title": "⏱️ 화면 이탈 감지 기능 탑재 안내 (딴짓 방지)",
+      "content": "공부 중 브라우저 탭을 전환하거나 다른 앱을 열면 타이머가 자동으로 일시정지됩니다. 정직하고 온전한 순공 시간을 측정해보세요.",
+      "category": "공지",
+      "createdAt": "2026-10-16",
+      "isPinned": true
+    },
+    {
+      "id": "not_3",
+      "title": "🏆 주간 누적 순공 시간 TOP 3 장학 혜택 이벤트",
+      "content": "이번 주 일요일 자정 기준 TOP 3에 랭크된 수강생 전원에게 모의고사 해설 특강 무료 수강권과 토익 보카 시크릿 노트를 증정합니다.",
+      "category": "이벤트",
+      "createdAt": "2026-10-17",
+      "isPinned": false
+    }
+  ],
+  "studentSettings": {
+    "showSecondHand": true,
+    "clockStyle": "classic",
+    "themeColor": "blue"
+  },
+  "pushedByClientId": "device_A_admin_client"
+}
